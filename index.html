@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Memory Game</title>
+    <link rel="stylesheet" type="text/css" href="style/style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="centerContent">
+        <div id="gameBoard">
+            <div class="row">
+                <span class="col-md-4"></span>
+                <h5 id="score" class="col-md-1">Score: 0</h5>
+                <span class="col-md-1"></span>
+                <h5 id="lives" class="col-md-1">Lives: 3</h5>
+                <span class="col-md-1"></span>
+                <button id="terminateBtn" onclick="terminateBtn()" class="col-md-1">Terminate</button>
+            </div>
+            <div class="row">
+
+                <span class="col-md-2"></span>
+                <h5 id="challenger" class="col-md-5">Challenger: </h5>
+            </div>
+                <div id="memoryGame" ></div>
+        </div>
+    </div>
+    <script src="js/frontend/strings.js"></script>
+    <script src="js/frontend/app.js"></script>
+</body>
+</html>
