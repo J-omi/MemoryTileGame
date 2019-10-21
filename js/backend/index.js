@@ -16,7 +16,22 @@ app.use(function(req, res, next) {
     next();
   });
   
+/**
+ * Initiates when server starts at port 8080.
+ */
+app.listen(8080, (error) => {
+    connectDb();
+    if (error) {
+        console.log(error);
+        return false;
+    }
+    console.log("server started at port: " + 8080);
+});
 
+
+/**
+ * Post method to insert the score into the database.
+ */
 app.post('/memoryGame/insertscore', (req, resp) => {
     let sql = "INSERT INTO scores(name, score) VALUES('" + req.body.name + "', " + req.body.score + ");";
     con.query(sql, (err, result) => {
@@ -30,6 +45,9 @@ app.post('/memoryGame/insertscore', (req, resp) => {
     });
 });
 
+/**
+ * Get method to get the top scores from the database.
+ */
 app.get('/memoryGame/getTopScores', (req, resp) => {
     console.log("get top scores");
     let sql = "SELECT * FROM scores ORDER BY score DESC LIMIT 5;";
@@ -53,6 +71,9 @@ app.get('/memoryGame/getTopScores', (req, resp) => {
     });
 });
 
+/**
+ * Get method to get the current user's rank out of all scores in the database/leaderboard.
+ */
 app.get('/memoryGame/getCurrRank', (req, resp) => {
     console.log("curr user rank");
     console.log(req.header('currUserId'));
@@ -70,16 +91,9 @@ app.get('/memoryGame/getCurrRank', (req, resp) => {
     });
 });
 
-
-app.listen(8080, (error) => {
-    connectDb();
-    if (error) {
-        console.log(error);
-        return false;
-    }
-    console.log("server started at port: " + 8080);
-});
-
+/**
+ * Function to connect server to the database.
+ */
 function connectDb() {
     con = mysql.createConnection({
 
