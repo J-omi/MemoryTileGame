@@ -1,3 +1,9 @@
+/**
+ * Summary.js frontend file for summary.html
+ * Shows summary of stats for the user that just played the game and allows user to
+ * submit their score.
+ */
+
 let finalScore;
 gameSummary();
 
