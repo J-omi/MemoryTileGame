@@ -1,3 +1,7 @@
+/**
+ * App.js frontend file for index.html
+ */
+
 // Initialize the base statistics for the memory game 
 let gameStatistics = {
     gridYSize: 3,
