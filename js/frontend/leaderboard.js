@@ -1,5 +1,7 @@
 /**
  * Leaderboard.js for the leaderboard.html
+ * Retrieves the leaderboard from the database using own node server. Compares
+ * the current user to the rest of the players.
  */
 let currUser;
 init();

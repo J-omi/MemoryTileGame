@@ -1,5 +1,7 @@
 /**
  * App.js frontend file for index.html
+ * Includes all the game logic as well as uses the star wars api to get a random
+ * character. 
  */
 
 // Initialize the base statistics for the memory game 
@@ -15,12 +17,14 @@ let gameStatistics = {
     userFailedLast: false,
     score: 0
 };
+
 // Array of the tiles that are needed to be pressed.
 let goodTiles = [];
 // Array of the tiles that the user clicked.
 let userClickedTiles = [];
 // Array of the tiles that user was correct on.
 let userClickedGoodTiles = [];
+
 setupGame();
 
 /**
