@@ -1,3 +1,7 @@
+/**
+ * Main server file.
+ */
+const dotenv = require('dotenv');
 const express = require('express');
 const mysql = require('mysql');
 const app = express();
@@ -5,6 +9,9 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const http = require('http');
 app.use(cors());
+
+//gets .env file so that database credentials are hidden
+dotenv.config({path: __dirname + '/.env'});
 
 let con = null;
 
@@ -20,6 +27,7 @@ app.use(function(req, res, next) {
  * Initiates when server starts at port 8080.
  */
 app.listen(8080, (error) => {
+    console.log(process.env.DB_HOST);
     connectDb();
     if (error) {
         console.log(error);
@@ -27,6 +35,27 @@ app.listen(8080, (error) => {
     }
     console.log("server started at port: " + 8080);
 });
+
+/**
+ * Function to connect server to the database.
+ */
+function connectDb() {
+    con = mysql.createConnection({
+
+        host: process.env.DB_HOST,
+        user: process.env.DB_USER,
+        password: process.env.DB_PASS,
+        database: process.env.DB_DATABASE
+    });
+
+    con.connect(function (err) {
+        console.log("db connected");
+        if (err) {
+            console.log(err);
+            throw err;
+        }
+    });
+}
 
 
 /**
@@ -90,24 +119,3 @@ app.get('/memoryGame/getCurrRank', (req, resp) => {
         }
     });
 });
-
-/**
- * Function to connect server to the database.
- */
-function connectDb() {
-    con = mysql.createConnection({
-
-        host: "localhost",
-        user: "joy",
-        password: "admin",
-        database: "memoryGame"
-    });
-
-    con.connect(function (err) {
-        console.log("db connected");
-        if (err) {
-            console.log(err);
-            throw err;
-        }
-    });
-}
