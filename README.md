@@ -22,4 +22,4 @@ As this is a small project, there are several things I would improve if this was
 - Make the game less vulnerable to changing the scores
 
 ## Running the game
-The game can be run locally if interested as it doesn't require the node server until after the game is done and the user is wanted to submit their score into the database/server. 
+The game can be run locally if interested as it doesn't require the node server until after the game is done and the user is wanted to submit their score into the database/server. [I also hosted the frontend on my website](http://joygomi.com/memoryTiles.html) (Be aware there is sound and it can be loud).
