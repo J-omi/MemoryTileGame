@@ -8,6 +8,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const http = require('http');
+
+//allow CORS for frontend
 app.use(cors());
 
 //gets .env file so that database credentials are hidden
@@ -27,7 +29,6 @@ app.use(function(req, res, next) {
  * Initiates when server starts at port 8080.
  */
 app.listen(8080, (error) => {
-    console.log(process.env.DB_HOST);
     connectDb();
     if (error) {
         console.log(error);
@@ -68,7 +69,6 @@ app.post('/memoryGame/insertscore', (req, resp) => {
             console.log(err);
             throw err;
         } else {
-            console.log(result);
             resp.send(result);
         }
     });
@@ -94,7 +94,6 @@ app.get('/memoryGame/getTopScores', (req, resp) => {
 
                 highScores.push(currHighScore);
             }
-            console.log(highScores);
             resp.json(highScores);
         }
     });
@@ -104,8 +103,6 @@ app.get('/memoryGame/getTopScores', (req, resp) => {
  * Get method to get the current user's rank out of all scores in the database/leaderboard.
  */
 app.get('/memoryGame/getCurrRank', (req, resp) => {
-    console.log("curr user rank");
-    console.log(req.header('currUserId'));
     let sql = "SELECT 1 + COUNT(*) AS 'rank' FROM scores WHERE score > (SELECT score FROM scores WHERE id = " + req.header('currUserId') + ");";
 
     con.query(sql, (err, result) => {
@@ -113,8 +110,6 @@ app.get('/memoryGame/getCurrRank', (req, resp) => {
             console.log(err);
             throw err;
         } else {
-            
-            console.log(result[0]);
             resp.send(result[0]);
         }
     });

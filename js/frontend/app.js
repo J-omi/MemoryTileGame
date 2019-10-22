@@ -78,7 +78,6 @@ function generateEnemy() {
     httpXml.open(getMethod, characterSearch); 
     httpXml.onreadystatechange = () => {
         if (httpXml.readyState === 4 && httpXml.status === 200) {
-            console.log(httpXml.response.name);
             let enemyName = httpXml.response.name;
             document.getElementById(CHALLENGER).innerHTML = CHALLENGER_OUTPUT + enemyName;
             gameStatistics.currEnemy = "" + enemyName;
@@ -87,7 +86,6 @@ function generateEnemy() {
         }
     };
     httpXml.send();
-    console.log(gameStatistics.currEnemy);
     document.getElementById(CHALLENGER).innerHTML = CHALLENGER_OUTPUT + gameStatistics.currEnemy;
 
 }
@@ -178,7 +176,6 @@ function checkUserClick(id) {
             userClickedGoodTiles.sort(sortArray);
             updateScore();
         }
-        console.log(userClickedTiles);
         if (JSON.stringify(goodTiles) === JSON.stringify(userClickedGoodTiles)) levelRefresh();
     } else {
         document.getElementById(id).style = BACKGROUND_RED;
