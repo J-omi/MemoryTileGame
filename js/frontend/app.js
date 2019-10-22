@@ -120,9 +120,9 @@ function assignGoodTiles() {
 }
 
 /**
- * Function to sort the array 
- * @param a 
- * @param b 
+ * Function to compare elements in array to be used by sort().
+ * @param a - first element
+ * @param b - second element
  */
 function sortArray(a, b) {
     let _a = a.slice(4, a.length);
