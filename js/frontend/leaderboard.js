@@ -1,3 +1,6 @@
+/**
+ * Leaderboard.js for the leaderboard.html
+ */
 let currUser;
 init();
 
