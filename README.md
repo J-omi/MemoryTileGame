@@ -1,10 +1,10 @@
 # MemoryTileGame
 
 ## Goal of the Game
-The goal of the game is to memorize the green tiles in a grid which will disappear and rotate so that it tests the user's memory. As the user gets more answers correct, the game grid gets larger and more difficult. 
+The goal of the game is to memorize the green tiles in a grid which will disappear and rotate so that it tests the user's memory. As the user gets more answers correct, the game grid gets progressively larger and more difficult. 
 
 ## Summary
-This is a memory tile game that I had developed myself built with HTML/CSS, Bootstrap, JavaScript, MySQL, and Node.js/Express. I refined the code a bit to add some features while also cleaning up any leftover user tests that I had. Some things I added were: additional game logic fixes, incorporating lives in the game, hiding the database credentials by using environment variables, as well as using swapi to generate a random enemy that you face.
+This is a memory tile game that I had developed myself using HTML/CSS, Bootstrap, JavaScript, MySQL, and Node.js/Express. I refined the code a bit to add some features while also cleaning up any leftover user tests that I had. Some things I added were: additional game logic fixes, incorporating lives in the game, hiding the database credentials by using environment variables, as well as using swapi to generate a random enemy that you face.
 
 ## SWapi
 I incorporated the Star Wars api by making a random character show up as an enemy in the game. When the user loses, it shows them which character was last faced before the game ended. I did notice that sometimes the api does take a bit of time to get a character. To improve this from a UI perspective I would: 
